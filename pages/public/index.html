@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>For You CRM</title>
+<style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 1rem;
+      background: #f2f2f2;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+      text-align: center;
+      margin-bottom: 0.25rem;
+    }
+
+    .greeting {
+      text-align: center;
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+      color: #666;
+    }
+
+    .menu {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .tile {
+      background: white;
+      padding: 1rem;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s ease;
+      text-decoration: none;
+      color: black;
+    }
+
+    .tile:hover {
+      background: #f5f5f5;
+    }
+  </style>
+<link href="style.css" rel="stylesheet"/><script defer="" src="script.js"></script></head>
+<body>
+<div class="nav-bar">
+<button onclick="goHome()">🏠 На главную</button>
+</div>
+
+<h1>For You CRM</h1>
+<div class="greeting">Добро пожаловать! Выберите нужный раздел 👇</div>
+<div class="menu">
+<a class="tile" href="for_you_crm_new_order.html">➕ Новый заказ</a>
+<a class="tile" href="order-list.html">📋 Список заказов</a>
+<a class="tile" href="order-awaiting.html" id="awaitingCount">📦 Ожидают поставки</a>
+<a class="tile" href="order-assembly.html" id="assemblyCount">🛠 Сборка</a>
+<a class="tile" href="order-delivery.html" id="deliveryCount">🚚 Доставка</a>
+<a class="tile" href="admin-panel.html">⚙️ Админ-панель</a>
+</div>
+<script>
+async function updateCounts() {
+  const counts = {
+    awaitingCount: 2,
+    assemblyCount: 1,
+    deliveryCount: 1
+  };
+  for (const id in counts) {
+    const el = document.getElementById(id);
+    if (el) el.innerText += ` (${counts[id]})`;
+  }
+}
+updateCounts();
+</script>
+</body>
+</html>
